@@ -27,11 +27,13 @@ def print_board(board):
     :param board: The board dictionary
     :return: void
     '''
-    print("---------")
-    print("{} | {} | {}".format(board[1],board[2],board[3]))
-    print("{} | {} | {}".format(board[4],board[5],board[6]))
-    print("{} | {} | {}".format(board[7],board[8],board[9]))
-    print("---------")
+    print("-------------")
+    print("--  BOARD  --")
+    print("-------------")
+    print("| {} | {} | {} |".format(board[1],board[2],board[3]))
+    print("| {} | {} | {} |".format(board[4],board[5],board[6]))
+    print("| {} | {} | {} |".format(board[7],board[8],board[9]))
+    print("-------------")
 
 def print_winner():
     pass
