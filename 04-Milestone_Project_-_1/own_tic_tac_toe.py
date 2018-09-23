@@ -79,9 +79,9 @@ def print_board(board):
     print("-------------")
     print("--  BOARD  --")
     print("-------------")
-    print("| {} | {} | {} |".format(board[1], board[2], board[3]))
-    print("| {} | {} | {} |".format(board[4], board[5], board[6]))
     print("| {} | {} | {} |".format(board[7], board[8], board[9]))
+    print("| {} | {} | {} |".format(board[4], board[5], board[6]))
+    print("| {} | {} | {} |".format(board[1], board[2], board[3]))
     print("-------------")
 
 
@@ -94,7 +94,6 @@ def play_a_game(board):
     game_continues = True
     while game_continues:
         for player in players:
-            print_board(board)
             board = input_move(board, player)
             print_board(board)
             winner = check_winner(board)
@@ -114,6 +113,8 @@ def play_a_game(board):
 board = create_board()
 keep_playing = True
 while keep_playing:
+    print_board(board)
     play_a_game(board)
     keep_playing = input('Play Again? (True / False): ')
+    board = create_board()
 print('Thanks for playing.')
