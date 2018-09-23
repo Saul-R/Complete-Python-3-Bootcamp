@@ -111,10 +111,11 @@ def play_a_game(board):
 
 #if __name__=="main":
 board = create_board()
-keep_playing = True
-while keep_playing:
+keep_playing = "yes"
+while keep_playing == "yes":
     print_board(board)
     play_a_game(board)
-    keep_playing = input('Play Again? (True / False): ')
+    keep_playing = input('Play Again? (yes / no): ')
+    print('Keep playing: '.format(keep_playing))
     board = create_board()
 print('Thanks for playing.')
