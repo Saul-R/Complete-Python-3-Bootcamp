@@ -109,13 +109,13 @@ def play_a_game(board):
     print("Game finished!")
 
 
-#if __name__=="main":
-board = create_board()
-keep_playing = "yes"
-while keep_playing == "yes":
-    print_board(board)
-    play_a_game(board)
-    keep_playing = input('Play Again? (yes / no): ')
-    print('Keep playing: '.format(keep_playing))
+if __name__ == "__main__":
     board = create_board()
-print('Thanks for playing.')
+    keep_playing = "yes"
+    while keep_playing == "yes":
+        print_board(board)
+        play_a_game(board)
+        keep_playing = input('Play Again? (yes / no): ')
+        print('Keep playing: '.format(keep_playing))
+        board = create_board()
+    print('Thanks for playing.')
