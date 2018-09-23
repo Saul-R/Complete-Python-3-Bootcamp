@@ -33,7 +33,7 @@ def input_move(board,player):
     return board
 
 
-def check_game_status(board):
+def check_winner(board):
     return (rows_match(board)) or (columns_match(board)) or (diagonals_match(board))
 
 
@@ -69,9 +69,9 @@ def print_board(board):
     print("-------------")
     print("--  BOARD  --")
     print("-------------")
-    print("| {} | {} | {} |".format(board[1],board[2],board[3]))
-    print("| {} | {} | {} |".format(board[4],board[5],board[6]))
-    print("| {} | {} | {} |".format(board[7],board[8],board[9]))
+    print("| {} | {} | {} |".format(board[1], board[2], board[3]))
+    print("| {} | {} | {} |".format(board[4], board[5], board[6]))
+    print("| {} | {} | {} |".format(board[7], board[8], board[9]))
     print("-------------")
 
 
