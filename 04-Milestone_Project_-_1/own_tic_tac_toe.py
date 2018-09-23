@@ -21,15 +21,25 @@ def input_replay():
     return True
 
 
-def input_move(board,player):
+def input_move(board, player):
     """
     Inputs a movement on the board for a player
     :param board: The tictactoe board
     :param player: The player's symbol
     :return: The board with the new movenment
     """
-    position = input('Input the position on the board: ')
-    board[position] = player
+    input_validated = False
+    while not input_validated:
+        position = input('Player {}: Input the position on the board: '.format(player))
+        try:
+            if (int(position) in board.keys()) and (board[int(position)] == " "):
+                board[int(position)] = player
+                input_validated = True
+            else:
+                print("Wrong input, try again")
+        except ValueError:
+            print("Wrong input type, use a number 1 to 9. Try again")
+
     return board
 
 
@@ -38,11 +48,11 @@ def check_winner(board):
 
 
 def cells_match(cell1, cell2, cell3):
-    return (cell1 == cell2) and (cell2 == cell3)
+    return (cell1 == cell2) and (cell2 == cell3) and (cell1 != " ")
 
 
 def rows_match(board):
-    row1 = cells_match(board[1], board[2], board[2])
+    row1 = cells_match(board[1], board[2], board[3])
     row2 = cells_match(board[4], board[5], board[6])
     row3 = cells_match(board[7], board[8], board[9])
     return row1 or row2 or row3
@@ -56,7 +66,7 @@ def columns_match(board):
 
 def diagonals_match(board):
     diag1 = cells_match(board[1], board[5], board[9])
-    diag2 = cells_match(board[4], board[5], board[6])
+    diag2 = cells_match(board[7], board[5], board[3])
     return diag1 or diag2
 
 
@@ -81,23 +91,29 @@ def check_tie(board):
 
 def play_a_game(board):
     players = ['X', 'O']
-    while True:
+    game_continues = True
+    while game_continues:
         for player in players:
-            board = input_move(board,player)
+            print_board(board)
+            board = input_move(board, player)
+            print_board(board)
             winner = check_winner(board)
             if winner:
-                print('The player {} has won!')
+                print('The player {} has won!'.format(player))
+                game_continues = False
                 break
             tie = check_tie(board)
             if tie:
                 print('Cannot do any movement. This is a tie')
+                game_continues = False
                 break
+    print("Game finished!")
 
 
-if __name__=="main":
-    board = create_board()
-    keep_playing = True
-    while keep_playing:
-        play_a_game(board)
-        keep_playing = input('Keep playing? (True / False): ')
-    print('Thanks for playing.')
+#if __name__=="main":
+board = create_board()
+keep_playing = True
+while keep_playing:
+    play_a_game(board)
+    keep_playing = input('Play Again? (True / False): ')
+print('Thanks for playing.')
