@@ -1,3 +1,4 @@
+from blackjack.elements.deck import PokerDeck
 
 
 class BlackjackPlayer(object):
@@ -10,11 +11,8 @@ class BlackjackPlayer(object):
     def introduce_myself(self):
         print("Nice to meet you, I am {}".format(self.name))
 
+    def get_card(self,current_deck):
+        self.hand.append(current_deck.deal_card())
 
-def test_method():
-    print('This is just a test method')
-
-
-if __name__ == "__main__":
-    my_test_player = BlackjackPlayer(name='John', starting_money=100)
-    my_test_player.introduce_myself()
+    def show_hand(self):
+        print()
