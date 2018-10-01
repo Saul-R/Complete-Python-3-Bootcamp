@@ -8,8 +8,8 @@ class BlackjackHand(object):
         self.value = 0
         self.bust = False
 
-    @staticmethod
-    def max_in_blackjack(x, y):
+    @classmethod
+    def max_in_blackjack(cls, x, y):
         if x > 21 and y <= 21:
             return y
         elif x <= 21 and y > 21:
@@ -32,7 +32,7 @@ class BlackjackHand(object):
                 possible_scores = list(map(lambda x: x + 11, possible_scores)) + \
                                   list(map(lambda x: x + 1, possible_scores))
 
-        self.value = reduce(self.max_in_blackjack, possible_scores)
+        self.value = reduce(BlackjackHand.max_in_blackjack, possible_scores)
         if self.value > 21:
             self.value = 0
             print("BUST!")
