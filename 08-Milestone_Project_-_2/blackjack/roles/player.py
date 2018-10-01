@@ -30,3 +30,6 @@ class BlackjackPlayer(object):
             raise ValueError
         else:
             self.money -= loses
+
+    def new_hand(self):
+        self.hand = BlackjackHand()

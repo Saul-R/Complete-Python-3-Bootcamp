@@ -1,5 +1,6 @@
 from blackjack.roles.player import BlackjackPlayer
 
+
 class HumanPlayer(BlackjackPlayer):
 
     def play_turn(self):
