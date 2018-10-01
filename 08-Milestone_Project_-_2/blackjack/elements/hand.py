@@ -2,20 +2,20 @@ from blackjack.elements.card import PokerCard
 from functools import reduce
 
 
-def max_in_blackjack(x, y):
-    if x > 21 and y <= 21:
-        return y
-    elif x <= 21 and y > 21:
-        return x
-    else:
-        return max(x, y)
-
-
 class BlackjackHand(object):
     def __init__(self):
         self.cards = []
         self.value = 0
         self.bust = False
+
+    @staticmethod
+    def max_in_blackjack(x, y):
+        if x > 21 and y <= 21:
+            return y
+        elif x <= 21 and y > 21:
+            return x
+        else:
+            return max(x, y)
 
     def add_card(self, card):
         self.cards.append(card)
@@ -32,13 +32,10 @@ class BlackjackHand(object):
                 possible_scores = list(map(lambda x: x + 11, possible_scores)) + \
                                   list(map(lambda x: x + 1, possible_scores))
 
-        self.value = reduce(max_in_blackjack, possible_scores)
+        self.value = reduce(self.max_in_blackjack, possible_scores)
         if self.value > 21:
             self.value = 0
             print("BUST!")
             self.bust = True
-
-
-
 
 
