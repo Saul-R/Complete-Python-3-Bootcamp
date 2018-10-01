@@ -13,7 +13,7 @@ class TestHand(unittest.TestCase):
     def test_add_card(self):
         test_hand = BlackjackHand()
         test_card = PokerCard(1, 'hearts')
-        test_hand.add_card(test_card)
+        test_hand.append(test_card)
         self.assertEqual(len(test_hand.cards), 1)
         self.assertEqual(test_hand.value, 11)
 
@@ -30,5 +30,5 @@ class TestHand(unittest.TestCase):
         for card_values, expected_value in expected_results:
             test_hand = BlackjackHand()
             for card_value in card_values:
-                test_hand.add_card(PokerCard(card_value, 'clubs'))
+                test_hand.append(PokerCard(card_value, 'clubs'))
             self.assertEqual(expected_value, test_hand.value)

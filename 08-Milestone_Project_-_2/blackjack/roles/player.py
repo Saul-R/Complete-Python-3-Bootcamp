@@ -1,10 +1,10 @@
-from blackjack.elements.deck import PokerDeck
+from blackjack.elements.hand import BlackjackHand
 
 
 class BlackjackPlayer(object):
 
     def __init__(self, name, starting_money):
-        self.hand = []
+        self.hand = BlackjackHand()
         self.money = starting_money
         self.name = name
 

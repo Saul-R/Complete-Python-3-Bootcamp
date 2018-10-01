@@ -1,4 +1,3 @@
-from blackjack.elements.card import PokerCard
 from functools import reduce
 
 
@@ -17,7 +16,7 @@ class BlackjackHand(object):
         else:
             return max(x, y)
 
-    def add_card(self, card):
+    def append(self, card):
         self.cards.append(card)
         self._calculate_value()
 
@@ -37,5 +36,3 @@ class BlackjackHand(object):
             self.value = 0
             print("BUST!")
             self.bust = True
-
-
