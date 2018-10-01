@@ -20,3 +20,13 @@ class BlackjackPlayer(object):
         for card in self.hand:
             print(card)
         print("=======")
+
+    def win_money(self, earnings):
+        self.money += earnings
+
+    def lose_money(self, loses):
+        if self.money < loses:
+            print("Can't lose that much money!")
+            raise ValueError
+        else:
+            self.money -= loses
