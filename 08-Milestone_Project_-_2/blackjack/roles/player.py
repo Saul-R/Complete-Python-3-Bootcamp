@@ -11,8 +11,12 @@ class BlackjackPlayer(object):
     def introduce_myself(self):
         print("Nice to meet you, I am {}".format(self.name))
 
-    def get_card(self,current_deck):
-        self.hand.append(current_deck.deal_card())
+    def get_card(self, current_deck):
+        cart_dealt = current_deck.deal_card()
+        self.hand.append(cart_dealt)
 
-    def show_hand(self):
-        print()
+    def print_hand(self):
+        print("=======")
+        for card in self.hand:
+            print(card)
+        print("=======")

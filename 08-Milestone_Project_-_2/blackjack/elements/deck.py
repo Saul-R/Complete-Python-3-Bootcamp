@@ -26,7 +26,7 @@ class PokerCard:
             13: 'King',
         }
 
-        print('{} of {}'.format(poker_value_dict[self.value]),self.suit)
+        return '{} of {}'.format(poker_value_dict[self.value], self.suit)
 
 
 class PokerDeck(object):
