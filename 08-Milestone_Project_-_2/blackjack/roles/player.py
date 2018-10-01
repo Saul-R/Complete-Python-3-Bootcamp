@@ -17,7 +17,7 @@ class BlackjackPlayer(object):
 
     def print_hand(self):
         print("=======")
-        for card in self.hand:
+        for card in self.hand.cards:
             print(card)
         print("=======")
 
