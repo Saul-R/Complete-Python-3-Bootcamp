@@ -23,9 +23,9 @@ def input_replay():
 
 def input_move(board, player):
     """
-    Inputs a movement on the board for a player
+    Inputs a movement on the board for a roles
     :param board: The tictactoe board
-    :param player: The player's symbol
+    :param player: The roles's symbol
     :return: The board with the new movenment
     """
     input_validated = False
@@ -98,7 +98,7 @@ def play_a_game(board):
             print_board(board)
             winner = check_winner(board)
             if winner:
-                print('The player {} has won!'.format(player))
+                print('The roles {} has won!'.format(player))
                 game_continues = False
                 break
             tie = check_tie(board)
